@@ -119,12 +119,13 @@ def analyse(image, interactionLimit):
                     confidences.append(float(confidence))
 
     box_line = cv2.dnn.NMSBoxes(outline, confidences, 0.5, 0.3)
+    red_box = False
     if len(box_line) > 0:
         flat_box = box_line.flatten()
         pairs = []
         center = []
         status = [] 
-        red_box = False
+        
 
         #create boxes for all 'person' objects
         for i in flat_box:
